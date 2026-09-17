@@ -33,7 +33,6 @@ export default function HomePage() {
                 <span className="ledger-num">{s.entry}</span>
                 <span>
                   <p className="ledger-name">{s.name}</p>
-                  <p className="ledger-note">{s.note}</p>
                 </span>
                 <span className="ledger-count">
                   {s.years.length} years available
