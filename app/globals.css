@@ -40,9 +40,6 @@ body {
   background-image:
     radial-gradient(circle at 1px 1px, rgba(23, 36, 29, 0.05) 1px, transparent 0);
   background-size: 22px 22px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 a {
@@ -312,38 +309,18 @@ a {
   border-color: var(--stamp-dark);
 }
 
-/* ---------- Site footer ---------- */
+/* ---------- Footer ---------- */
 
-.site-footer {
-  margin-top: auto;
-  border-top: 1px solid var(--line-soft);
-  background: #fff;
-  padding: 28px 0 36px;
-  text-align: center;
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 56px;
 }
 
-.site-footer-copy {
-  margin: 0 0 6px;
-  font-size: 14px;
-  color: #5a6570;
-  line-height: 1.5;
-}
-
-.site-footer-copy a {
-  color: #3b6fd8;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.site-footer-copy a:hover {
-  color: #2a56b0;
-}
-
-.site-footer-tagline {
-  margin: 0;
+.footer p {
   font-size: 13px;
-  color: #c4a35a;
-  letter-spacing: 0.01em;
+  color: var(--ink-faint);
+  margin: 0;
+  line-height: 1.6;
 }
 
 /* ---------- Responsive ---------- */
