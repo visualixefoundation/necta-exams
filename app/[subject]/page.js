@@ -50,7 +50,8 @@ export default function SubjectPage({ params }) {
       <main className="wrap">
         <section className="years">
           {years.map((year) => {
-            const href = `/exams/${subject.slug}/${year}.pdf`;
+            const viewHref = `/view/${subject.slug}/${year}`;
+            const downloadHref = `/exams/${subject.slug}/${year}.pdf`;
             return (
               <div className="year-row" key={year}>
                 <div>
@@ -60,15 +61,10 @@ export default function SubjectPage({ params }) {
                   </p>
                 </div>
                 <div className="actions">
-                  <a
-                    className="btn"
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link className="btn" href={viewHref}>
                     View paper
-                  </a>
-                  <a className="btn btn-stamp" href={href} download>
+                  </Link>
+                  <a className="btn btn-stamp" href={downloadHref} download>
                     Download
                   </a>
                 </div>
