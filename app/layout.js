@@ -25,25 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>
-        {children}
-        <footer className="site-footer">
-          <div className="wrap">
-            <p className="site-footer-copy">
-              © 2026{" "}
-              <a
-                href="https://visualixe-foundation.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visualixe Foundation
-              </a>
-              . All rights reserved.
-            </p>
-            <p className="site-footer-tagline">Built with purpose ✊</p>
-          </div>
-        </footer>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
