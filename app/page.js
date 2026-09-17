@@ -43,16 +43,6 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-
-      <footer className="footer">
-        <div className="wrap">
-          <p>
-            Papers are shared for personal revision. If a link is broken or
-            you have a paper missing from this archive, let the site owner
-            know.
-          </p>
-        </div>
-      </footer>
     </>
   );
 }
