@@ -23,31 +23,31 @@ export default function HomePage() {
 
       <main className="wrap">
         <section className="register">
-          {categories.map((cat) => {
-            const items = getSubjectsByCategory(cat.id);
-            return (
-              <div className="category-block" key={cat.id}>
-                <h2 className="category-title">{cat.name}</h2>
-                <div className="ledger">
-                  {items.map((s) => (
-                    <Link
-                      key={s.slug}
-                      href={`/${s.slug}`}
-                      className="ledger-row"
-                    >
-                      <span className="ledger-num">{s.entry}</span>
-                      <span>
-                        <p className="ledger-name">{s.name}</p>
-                      </span>
-                      <span className="ledger-count">
-                        {s.years.length} years available
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+          <div className="ledger">
+            {categories.map((cat, i) => {
+              const items = getSubjectsByCategory(cat.id);
+              const totalYears = items.reduce(
+                (sum, s) => sum + s.years.length,
+                0
+              );
+              const entry = String(i + 1).padStart(2, "0");
+              return (
+                <Link
+                  key={cat.id}
+                  href={`/${cat.id}`}
+                  className="ledger-row"
+                >
+                  <span className="ledger-num">{entry}</span>
+                  <span>
+                    <p className="ledger-name">{cat.name}</p>
+                  </span>
+                  <span className="ledger-count">
+                    {items.length} papers · {totalYears} years
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
         </section>
       </main>
     </>
