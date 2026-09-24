@@ -1,20 +1,32 @@
-import Link from "next/link";
 import Seal from "../components/Seal";
-import { categories, getSubjectsByCategory } from "../lib/subjects";
+import HomeSearch from "../components/HomeSearch";
+import { categories, subjects, paperCount } from "../lib/subjects";
 
 export default function HomePage() {
+  const totalPapers = subjects.length;
+  const totalYears = paperCount();
+
   return (
     <>
       <header className="band">
         <div className="wrap">
+          <p className="band-kicker">Visualixe Foundation · Exam Archive</p>
           <div className="masthead">
             <Seal />
             <div>
-              <h1>NECTA A-Level Papers</h1>
-              <p>
-                A running archive of past Advanced Level exam papers, kept
-                for Form V and VI candidates to revise from — open any paper
-                to read it, or download it to keep offline.
+              <h1>
+                <span className="title-necta">NECTA</span>
+                <span className="title-main">A-Level Papers</span>
+              </h1>
+              <p className="masthead-lead">
+                Past NECTA A-Level papers for revision — view online or download.
+              </p>
+              <p className="masthead-stats">
+                <span>{categories.length} subjects</span>
+                <span className="stat-dot" />
+                <span>{totalPapers} papers</span>
+                <span className="stat-dot" />
+                <span>{totalYears} years</span>
               </p>
             </div>
           </div>
@@ -22,33 +34,7 @@ export default function HomePage() {
       </header>
 
       <main className="wrap">
-        <section className="register">
-          <div className="ledger">
-            {categories.map((cat, i) => {
-              const items = getSubjectsByCategory(cat.id);
-              const totalYears = items.reduce(
-                (sum, s) => sum + s.years.length,
-                0
-              );
-              const entry = String(i + 1).padStart(2, "0");
-              return (
-                <Link
-                  key={cat.id}
-                  href={`/${cat.id}`}
-                  className="ledger-row"
-                >
-                  <span className="ledger-num">{entry}</span>
-                  <span>
-                    <p className="ledger-name">{cat.name}</p>
-                  </span>
-                  <span className="ledger-count">
-                    {items.length} papers · {totalYears} years
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
+        <HomeSearch categories={categories} subjects={subjects} />
       </main>
     </>
   );
