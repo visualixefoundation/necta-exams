@@ -71,7 +71,7 @@ a {
 .band {
   background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-deep-2) 100%);
   color: #f2ede0;
-  padding: 56px 0 64px;
+  padding: 48px 0 56px;
   position: relative;
 }
 
@@ -90,6 +90,14 @@ a {
     transparent 20px
   );
   opacity: 0;
+}
+
+.band-kicker {
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(242, 237, 224, 0.55);
+  margin: 0 0 20px;
 }
 
 .crumb {
@@ -125,18 +133,53 @@ a {
 .masthead h1 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(28px, 4.4vw, 40px);
   line-height: 1.08;
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   letter-spacing: 0.01em;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.masthead p {
-  margin: 0;
+.title-necta {
+  font-size: clamp(13px, 2vw, 15px);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.title-main {
+  font-size: clamp(28px, 4.4vw, 40px);
+  font-weight: 600;
+  color: #f2ede0;
+}
+
+.masthead-lead {
+  margin: 0 0 12px;
   color: rgba(242, 237, 224, 0.78);
   font-size: 15.5px;
-  max-width: 46ch;
+  max-width: 42ch;
   line-height: 1.5;
+}
+
+.masthead-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0;
+  font-size: 13.5px;
+  color: rgba(242, 237, 224, 0.62);
+}
+
+.stat-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.7;
+  display: inline-block;
 }
 
 .subject-kicker {
@@ -177,10 +220,50 @@ a {
   display: inline-block;
 }
 
+/* ---------- Search ---------- */
+
+.search-bar {
+  margin: 28px 0 0;
+}
+
+.search-input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper-card);
+  color: var(--ink);
+  box-shadow: 0 8px 24px -18px rgba(18, 38, 29, 0.35);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input::placeholder {
+  color: var(--ink-faint);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--ink-soft);
+  box-shadow: 0 8px 28px -16px rgba(18, 38, 29, 0.4);
+}
+
+.search-empty {
+  margin: 24px 0 0;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-align: center;
+  padding: 28px 16px;
+  background: var(--paper-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+}
+
 /* ---------- Register (home list) ---------- */
 
 .register {
-  margin: 40px auto 64px;
+  margin: 20px auto 64px;
   position: relative;
   z-index: 2;
 }
@@ -345,7 +428,7 @@ a {
 
 @media (max-width: 620px) {
   .band {
-    padding: 40px 0 52px;
+    padding: 36px 0 44px;
   }
 
   .masthead {
