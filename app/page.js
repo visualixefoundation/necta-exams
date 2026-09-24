@@ -16,7 +16,7 @@ export default function HomePage() {
                 <span className="title-main">A-Level Papers</span>
               </h1>
               <p className="masthead-lead">
-                Past NECTA A-Level papers for revision — view online or download.
+                Past NECTA A-Level papers for revision. View online or download.
               </p>
             </div>
           </div>
