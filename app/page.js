@@ -1,11 +1,8 @@
+import Link from "next/link";
 import Seal from "../components/Seal";
-import HomeSearch from "../components/HomeSearch";
-import { categories, subjects, paperCount } from "../lib/subjects";
+import { categories, getSubjectsByCategory } from "../lib/subjects";
 
 export default function HomePage() {
-  const totalPapers = subjects.length;
-  const totalYears = paperCount();
-
   return (
     <>
       <header className="band">
@@ -21,20 +18,39 @@ export default function HomePage() {
               <p className="masthead-lead">
                 Past NECTA A-Level papers for revision — view online or download.
               </p>
-              <p className="masthead-stats">
-                <span>{categories.length} subjects</span>
-                <span className="stat-dot" />
-                <span>{totalPapers} papers</span>
-                <span className="stat-dot" />
-                <span>{totalYears} years</span>
-              </p>
             </div>
           </div>
         </div>
       </header>
 
       <main className="wrap">
-        <HomeSearch categories={categories} subjects={subjects} />
+        <section className="register">
+          <div className="ledger">
+            {categories.map((cat, i) => {
+              const items = getSubjectsByCategory(cat.id);
+              const totalYears = items.reduce(
+                (sum, s) => sum + s.years.length,
+                0
+              );
+              const entry = String(i + 1).padStart(2, "0");
+              return (
+                <Link
+                  key={cat.id}
+                  href={`/${cat.id}`}
+                  className="ledger-row"
+                >
+                  <span className="ledger-num">{entry}</span>
+                  <span>
+                    <p className="ledger-name">{cat.name}</p>
+                  </span>
+                  <span className="ledger-count">
+                    {items.length} papers · {totalYears} years
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
       </main>
     </>
   );
