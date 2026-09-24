@@ -180,7 +180,7 @@ a {
 /* ---------- Register (home list) ---------- */
 
 .register {
-  margin: -34px auto 64px;
+  margin: 40px auto 64px;
   position: relative;
   z-index: 2;
 }
@@ -264,7 +264,7 @@ a {
 /* ---------- Year list (subject page) ---------- */
 
 .years {
-  margin: -34px auto 64px;
+  margin: 40px auto 64px;
   position: relative;
   z-index: 2;
 }
