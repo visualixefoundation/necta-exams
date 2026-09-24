@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Seal from "../components/Seal";
-import { subjects } from "../lib/subjects";
+import { categories, getSubjectsByCategory } from "../lib/subjects";
 
 export default function HomePage() {
   return (
@@ -23,23 +23,31 @@ export default function HomePage() {
 
       <main className="wrap">
         <section className="register">
-          <div className="ledger">
-            {subjects.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/${s.slug}`}
-                className="ledger-row"
-              >
-                <span className="ledger-num">{s.entry}</span>
-                <span>
-                  <p className="ledger-name">{s.name}</p>
-                </span>
-                <span className="ledger-count">
-                  {s.years.length} years available
-                </span>
-              </Link>
-            ))}
-          </div>
+          {categories.map((cat) => {
+            const items = getSubjectsByCategory(cat.id);
+            return (
+              <div className="category-block" key={cat.id}>
+                <h2 className="category-title">{cat.name}</h2>
+                <div className="ledger">
+                  {items.map((s) => (
+                    <Link
+                      key={s.slug}
+                      href={`/${s.slug}`}
+                      className="ledger-row"
+                    >
+                      <span className="ledger-num">{s.entry}</span>
+                      <span>
+                        <p className="ledger-name">{s.name}</p>
+                      </span>
+                      <span className="ledger-count">
+                        {s.years.length} years available
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </section>
       </main>
     </>
