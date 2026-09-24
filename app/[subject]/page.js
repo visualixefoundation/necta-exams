@@ -54,7 +54,7 @@ export default function DynamicPage({ params }) {
         </header>
 
         <main className="wrap">
-          <section className="register" style={{ marginTop: "-34px" }}>
+          <section className="register">
             <div className="ledger">
               {items.map((s) => (
                 <Link
