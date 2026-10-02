@@ -32,21 +32,12 @@ export const metadata = {
     url: "https://necta-exams.vercel.app",
     siteName: "NECTA A-Level Papers",
     type: "website",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "NECTA A-Level Papers",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "NECTA A-Level Papers | Past Exam Archive",
     description:
       "Browse and download past NECTA Advanced Level exam papers for Economics, Computer Science and Advanced Mathematics.",
-    images: ["/og.png"],
   },
 };
 
