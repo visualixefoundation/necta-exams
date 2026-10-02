@@ -40,8 +40,8 @@ export default function DynamicPage({ params }) {
       <>
         <header className="band">
           <div className="wrap">
-            <Link href="/" className="crumb">
-              ← All subjects
+            <Link href="/acsee" className="crumb">
+              ← ACSEE
             </Link>
             <h1 className="subject-title">{category.name}</h1>
             <div className="subject-meta">
@@ -89,8 +89,8 @@ export default function DynamicPage({ params }) {
     <>
       <header className="band">
         <div className="wrap">
-          <Link href={parent ? `/${parent.id}` : "/"} className="crumb">
-            ← {parent ? parent.name : "All subjects"}
+          <Link href={parent ? `/${parent.id}` : "/acsee"} className="crumb">
+            ← {parent ? parent.name : "ACSEE"}
           </Link>
           <p className="subject-kicker">Entry {subject.entry}</p>
           <h1 className="subject-title">{subject.name}</h1>
