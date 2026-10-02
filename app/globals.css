@@ -196,6 +196,24 @@ button {
   z-index: 2;
 }
 
+.category-block {
+  margin-bottom: 28px;
+}
+
+.category-block:last-child {
+  margin-bottom: 0;
+}
+
+.category-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 10px 4px;
+}
+
 .ledger {
   background: var(--paper-card);
   border: 1px solid var(--line);
