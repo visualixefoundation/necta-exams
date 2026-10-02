@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Seal from "../components/Seal";
-import { categories, getSubjectsByCategory } from "../lib/subjects";
 
 export default function HomePage() {
   return (
@@ -16,7 +15,8 @@ export default function HomePage() {
                 <span className="title-main">A-Level Papers</span>
               </h1>
               <p className="masthead-lead">
-                Past NECTA A-Level papers for revision. View online or download.
+                Past papers and pre-mock exams for revision. View online or
+                download.
               </p>
             </div>
           </div>
@@ -26,29 +26,20 @@ export default function HomePage() {
       <main className="wrap">
         <section className="register">
           <div className="ledger">
-            {categories.map((cat, i) => {
-              const items = getSubjectsByCategory(cat.id);
-              const totalYears = items.reduce(
-                (sum, s) => sum + s.years.length,
-                0
-              );
-              const entry = String(i + 1).padStart(2, "0");
-              return (
-                <Link
-                  key={cat.id}
-                  href={`/${cat.id}`}
-                  className="ledger-row"
-                >
-                  <span className="ledger-num">{entry}</span>
-                  <span>
-                    <p className="ledger-name">{cat.name}</p>
-                  </span>
-                  <span className="ledger-count">
-                    {items.length} papers · {totalYears} years
-                  </span>
-                </Link>
-              );
-            })}
+            <Link href="/pre-mock" className="ledger-row">
+              <span className="ledger-num">01</span>
+              <span>
+                <p className="ledger-name">Pre Mock</p>
+              </span>
+              <span className="ledger-count">Regional pre-mocks</span>
+            </Link>
+            <Link href="/acsee" className="ledger-row">
+              <span className="ledger-num">02</span>
+              <span>
+                <p className="ledger-name">ACSEE</p>
+              </span>
+              <span className="ledger-count">Past NECTA papers</span>
+            </Link>
           </div>
         </section>
       </main>
