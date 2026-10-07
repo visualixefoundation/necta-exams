@@ -6,9 +6,9 @@ import {
   getPreMockRegion,
   getPreMockSubject,
   preMockPdfPath,
-} from "../../../../../../lib/premock";
+} from "../../../../../../../lib/premock";
 import PdfViewer from "../../../../../[subject]/[year]/PdfViewer";
-import ShareButtons from "../../../../../../components/ShareButtons";
+import ShareButtons from "../../../../../../../components/ShareButtons";
 
 export function generateStaticParams() {
   const params = [];
